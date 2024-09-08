@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modifier Professeur</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <style>
+        .top-right-menu {
+            position: absolute;
+            top: 10px;
+            right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-right-menu">
+        <a href="menu1.html">menu</a>
+    </div>
+
+    
+        <form action="modp.php" name="f" method="post">
+            <h1>Modifier Professeur</h1>
+
+            <p>Id Prof :
+                <input type="text" name="idprof" id="idprof" required>
+            </p>
+            <p>Nom du Prof :
+                <input type="text" name="nomprof" id="nomprof">
+            </p>
+            <p>Prenom du Prof :
+                <input type="text" name="prenomprof" id="prenomprof">
+            </p>
+            <input type="submit" value="Valider">
+            <input type="reset" value="Annuler">
+        </form>
+    
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css.css">
+
+    <style>
+        .top-right-menu {
+            position: absolute;
+            top: 10px;
+            right: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="top-right-menu">
+        <a href="menu1.html">menu</a>
+    </div>
+
+   
+        <form action="modmat.php" name="f" method="post">
+            <h1>Modifier Matière</h1>
+
+            <p>Id Matière:
+                <input type="text" name="idmat" id="idmat" required>
+            </p>
+            <p>Nom Matière:
+                <input type="text" name="nommat" id="nommat" required>
+            </p>
+            <input type="submit" value="Valider">
+            <input type="reset" value="Annuler">
+        </form>
+    
+</body>
+</html>

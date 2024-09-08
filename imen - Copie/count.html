@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nombre Total de Professeurs</title>
+</head>
+<body>
+    <h1>Nombre Total de Professeurs</h1>
+    <form action="" method="post">
+        <input type="submit" name="calculate" value="Calculer">
+    </form>
+
+    <?php
+    if (isset($_POST['calculate'])) {
+        // Etablir la connexion à la base de données
+        $conn = new mysqli("localhost", "root", "", "inscription2");
+
+        // Vérifier la connexion
+        if ($conn->connect_error) {
+            die("La connexion a échoué: " . $conn->connect_error);
+        }
+
+        // Fonction pour compter le nombre de professeurs
+        function countProfessors($conn) {
+            $result = $conn->query("SELECT COUNT(*) AS count FROM prof");
+            if ($result) {
+                $row = $result->fetch_assoc();
+                return $row['count'];
+            } else {
+                return 0;
+            }
+        }
+
+        // Afficher le nombre total de professeurs
+        $totalProfs = countProfessors($conn);
+        echo "<p>Nombre total de professeurs: $totalProfs</p>";
+
+        // Fermer la connexion
+        $conn->close();
+    }
+    ?>
+
+    <br>
+    <a href="modp.html">Modifier les coordonnées</a><br>
+    <a href="menu1.html">Revenir au menu</a>
+</body>
+</html>

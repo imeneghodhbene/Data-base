@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculer le nombre de professeurs</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            $("#calculer_professeurs").click(function(e) {
+                e.preventDefault();
+
+                // Envoyer une requête AJAX vers count_professors.php
+                $.ajax({
+                    url: "count_professors.php",
+                    type: "GET",
+                    dataType: "json",
+                    success: function(response) {
+                        if (response.total_professors !== undefined) {
+                            alert("Nombre total de professeurs : " + response.total_professors);
+                        } else {
+                            alert("Erreur : " + response.error);
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Erreur lors de la requête AJAX : " + error);
+                    }
+                });
+            });
+        });
+    </script>
+</head>
+<body>
+    <fieldset>
+        <h1>Calculer le nombre de professeurs</h1>
+        <button id="calculer_professeurs">Calculer Professeurs</button>
+    </fieldset>
+</body>
+</html>
